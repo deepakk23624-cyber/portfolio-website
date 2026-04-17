@@ -6,9 +6,7 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          Creative and skilled Video Editor specializing in viral content creation, high-CTR thumbnails, and cinematic storytelling. Experienced in producing engaging social media content that drives audience growth and retention. Focused on delivering high-quality edits with professional-level motion graphics and visual effects.
         </p>
       </div>
     </div>
