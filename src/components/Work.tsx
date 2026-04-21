@@ -16,9 +16,9 @@ const Work = () => {
   };
 
   const videoProjects = [
-    { name: "Project 1", video: "video1.mp4", image: "/images/placeholder.webp", desc: "ORIGINAL WORK" },
-    { name: "Project 2", video: "video2.mp4", image: "/images/placeholder.webp", desc: "CINEMATIC PACING" },
-    { name: "Project 3", video: "video3.mp4", image: "/images/placeholder.webp", desc: "BEAT-DRIVEN CUT" },
+    { name: "Project 1", video: "video1.mp4", desc: "ORIGINAL WORK" },
+    { name: "Project 2", video: "video2.mp4", desc: "CINEMATIC PACING" },
+    { name: "Project 3", video: "video3.mp4", desc: "BEAT-DRIVEN CUT" },
     { name: "More Projects", video: "", image: "/images/googledrive.png", desc: "GOOGLE DRIVE FOLDER", link: "https://drive.google.com/drive/folders/1N3caRvJsf26kAzse2qvgj29eilYFlHj7" },
   ];
 

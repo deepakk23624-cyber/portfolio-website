@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MdArrowOutward, MdVolumeOff, MdVolumeUp } from "react-icons/md";
 
 interface Props {
-  image: string;
+  image?: string;
   alt?: string;
   video?: string;
   link?: string;
@@ -44,19 +44,21 @@ const WorkImage = (props: Props) => {
             <MdArrowOutward />
           </div>
         )}
-        <img
-          src={props.image}
-          alt={props.alt}
-          style={
-            props.video
-              ? { aspectRatio: "9/16", objectFit: "cover", borderRadius: "10px", maxHeight: "450px", width: "auto", margin: "0 auto", display: "block" }
-              : props.image.includes("googledrive")
-                ? { borderRadius: "10px", width: "100%", maxHeight: "450px", objectFit: "contain" }
-                : { borderRadius: "10px", width: "100%" }
-          }
-        />
+        {props.image && (
+          <img
+            src={props.image}
+            alt={props.alt}
+            style={
+              props.video
+                ? { aspectRatio: "9/16", objectFit: "cover", borderRadius: "10px", maxHeight: "450px", width: "auto", margin: "0 auto", display: "block" }
+                : props.image.includes("googledrive")
+                  ? { borderRadius: "10px", width: "100%", maxHeight: "450px", objectFit: "contain" }
+                  : { borderRadius: "10px", width: "100%" }
+            }
+          />
+        )}
 
-        {isVideoHovered && props.video && (
+        {(isVideoHovered || !props.image) && props.video && (
           <>
             <video
               src={`/images/${props.video}`}
@@ -65,14 +67,16 @@ const WorkImage = (props: Props) => {
               playsInline
               loop
               style={{
-                position: "absolute",
+                position: props.image ? "absolute" : "relative",
                 width: "100%",
                 height: "100%",
                 top: 0,
                 left: 0,
                 backgroundColor: "#000",
                 objectFit: "cover",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                aspectRatio: "9/16",
+                maxHeight: "450px"
               }}
             />
             <button
