@@ -44,6 +44,24 @@
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+}
+.navbar-title img {
+  /* Premium Cinematic Lighting Effect */
+  filter: 
+    drop-shadow(0 0 6px rgba(138, 180, 255, 0.5)) /* Base soft blue neon glow */
+    drop-shadow(0 0 15px rgba(100, 149, 237, 0.3)) /* Ambient light spread */
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.3)) /* Crisp rim light for sharpness */
+    contrast(1.08) 
+    saturate(1.05); /* Slight color enhancement */
+  
+  /* Performance optimizations */
+  will-change: filter;
+  transform: translateZ(0); 
+  
+  /* Smooth transition for any inherited hover states */
+  transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media only screen and (min-width: 500px) {
   .header {

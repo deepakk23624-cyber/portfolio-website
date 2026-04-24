@@ -4,17 +4,35 @@ import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import "./styles/Navbar.css";
 
+import { useLenis } from "lenis/react";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export const smoother = {
-  paused: (val: boolean) => { if(val) return; },
+  instance: null as any,
+  paused: (val: boolean) => { 
+    if (smoother.instance) {
+      if (val) smoother.instance.stop();
+      else smoother.instance.start();
+    }
+  },
   scrollTo: (target: string, smooth: boolean, position: string) => {
-    if(smooth || position) {}
-    document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+    if (smooth || position) {}
+    if (smoother.instance) {
+      smoother.instance.scrollTo(target);
+    } else {
+      document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 };
 
 const Navbar = () => {
+  const lenis = useLenis();
+
+  useEffect(() => {
+    smoother.instance = lenis;
+  }, [lenis]);
+
   useEffect(() => {
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {

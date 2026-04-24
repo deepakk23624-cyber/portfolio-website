@@ -68,52 +68,45 @@ export function initialFX() {
 }
 
 function LoopText(elem1: string, elem2: string) {
-  var tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
-  const delay = 4;
-  const delay2 = delay * 2 + 1;
+  var tl = gsap.timeline({ repeat: -1 });
 
-  tl.fromTo(
-    elem2,
-    { opacity: 0, y: 80 },
-    {
-      opacity: 1,
+  gsap.set(elem1, { y: 0, opacity: 1 });
+  gsap.set(elem2, { y: 80, opacity: 0 });
+
+  tl.to(elem1, {
+    y: -80,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.inOut",
+    delay: 3,
+  })
+    .fromTo(
+      elem2,
+      { y: 80, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.inOut",
+        immediateRender: false
+      }
+    )
+    .to(elem2, {
+      y: -80,
+      opacity: 0,
       duration: 1.2,
       ease: "power3.inOut",
-      y: 0,
-      delay: delay,
-    },
-    0
-  )
+      delay: 3,
+    })
     .fromTo(
       elem1,
-      { y: 80 },
+      { y: 80, opacity: 0 },
       {
-        duration: 1.2,
-        ease: "power3.inOut",
         y: 0,
-        delay: delay2,
-      },
-      1
-    )
-    .fromTo(
-      elem1,
-      { y: 0 },
-      {
-        y: -80,
+        opacity: 1,
         duration: 1.2,
         ease: "power3.inOut",
-        delay: delay,
-      },
-      0
-    )
-    .to(
-      elem2,
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        delay: delay2,
-      },
-      1
+        immediateRender: false
+      }
     );
 }
