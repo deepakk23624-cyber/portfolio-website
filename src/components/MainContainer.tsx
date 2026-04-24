@@ -1,7 +1,7 @@
 import { lazy, PropsWithChildren, Suspense, useEffect, useState, useRef } from "react";
 import { ReactLenis } from "lenis/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
