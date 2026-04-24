@@ -10,14 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const smoother = {
   instance: null as any,
-  paused: (val: boolean) => { 
+  paused: (val: boolean) => {
     if (smoother.instance) {
       if (val) smoother.instance.stop();
       else smoother.instance.start();
     }
   },
   scrollTo: (target: string, smooth: boolean, position: string) => {
-    if (smooth || position) {}
+    if (smooth || position) { }
     if (smoother.instance) {
       smoother.instance.scrollTo(target);
     } else {
@@ -51,7 +51,7 @@ const Navbar = () => {
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          <img src="/logo.png" alt="logo" style={{ width: "120px" }} />
+          <img src="/logo.png" alt="logo" style={{ width: "70px" }} />
         </a>
 
 
